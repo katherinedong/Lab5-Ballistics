@@ -1,3 +1,9 @@
+/*
+ * Group: 41
+ * Katy Dong      (260610798)
+ * Arta Riazrafat (260636821)
+ */
+
 package ballistics;
 
 import lejos.hardware.Button;
@@ -14,12 +20,14 @@ public class Lab5 {
 	private static int throwSpeed = 20000;
 	private static int returnAccel = 400;
 	private static int returnSpeed = 100;
-	private static int initAngle = -120;
+	private static int initAngle = -100;
 
 	public static void main(String[] args) {
 
 		while (true) {
 			int buttonChoice = Button.waitForAnyPress();
+			// When the bottom button is pressed, swing the catapult at max
+			// speed and acceleration
 			if (buttonChoice == Button.ID_DOWN) {
 				rightMotor.setAcceleration(throwAccel);
 				leftMotor.setAcceleration(throwAccel);
@@ -29,6 +37,9 @@ public class Lab5 {
 
 				rightMotor.rotateTo(initAngle, true);
 				leftMotor.rotateTo(initAngle, false);
+
+				// Rotate the catapult back to the initial position at a slower
+				// speed and acceleration to prepare for the next swing
 			} else if (buttonChoice == Button.ID_LEFT) {
 				rightMotor.setAcceleration(returnAccel);
 				leftMotor.setAcceleration(returnAccel);
@@ -38,6 +49,8 @@ public class Lab5 {
 
 				rightMotor.rotateTo(0, true);
 				leftMotor.rotateTo(0, false);
+
+				// Exit the program
 			} else if (buttonChoice == Button.ID_UP) {
 				System.exit(0);
 			}
