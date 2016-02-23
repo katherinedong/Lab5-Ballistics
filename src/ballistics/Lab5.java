@@ -29,24 +29,30 @@ public class Lab5 {
 			// When the bottom button is pressed, swing the catapult at max
 			// speed and acceleration
 			if (buttonChoice == Button.ID_DOWN) {
+				// Set acceleration to max acceleration
 				rightMotor.setAcceleration(throwAccel);
 				leftMotor.setAcceleration(throwAccel);
 
+				// Set speed to max speed
 				rightMotor.setSpeed(throwSpeed);
 				leftMotor.setSpeed(throwSpeed);
 
+				// Rotate to throw ball
 				rightMotor.rotateTo(initAngle, true);
 				leftMotor.rotateTo(initAngle, false);
 
 				// Rotate the catapult back to the initial position at a slower
 				// speed and acceleration to prepare for the next swing
 			} else if (buttonChoice == Button.ID_LEFT) {
+				// Set return acceleration
 				rightMotor.setAcceleration(returnAccel);
 				leftMotor.setAcceleration(returnAccel);
 
+				// Set speed so that it returns to its initial position slowly
 				rightMotor.setSpeed(returnSpeed);
 				leftMotor.setSpeed(returnSpeed);
 
+				// Go back to initial position
 				rightMotor.rotateTo(0, true);
 				leftMotor.rotateTo(0, false);
 
